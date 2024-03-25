@@ -1,0 +1,104 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hi there, what can I do for you today?",
+        "Hello there, how can I help?",
+        "Hey, how can I assist you today?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye", 
+        "See you later", 
+        "Goodbye"
+      ],
+      "responses": [
+        "Catch you later! If you need anything, just hit me up",
+        "See you later, have a great day",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks", 
+        "Thank you", 
+        "That's helpful", 
+        "Thank's a lot!"
+      ],
+      "responses": [
+        "No problem at all! If you've got more questions later, just ask.",
+        "Anytime! Enjoy the rest of your day!",
+        "Happy to help!", 
+        "Any time!", 
+        "My pleasure",
+        "I'm glad I could help! If you have any more questions, feel free to ask."
+      ]
+    },
+    {
+      "tag": "direction",
+      "patterns": [
+        "I need direction",
+        "Help me with direction",
+        "Please direct me",
+        "Where can I follow?",
+        "Where can I go?"
+      ],
+      "responses": [
+        "I would be glad to help, where are you and where do you need to go to?",
+        "What is your current location and where do you want to go to?",
+        "What destination are you trying to visit?",
+        "Kindly check the navigation map to get detailed directions. Click Done >>> Click the navigation icon on the bar below (i.e the second icon) >>> use the search bar at the top to input your desired destination >>> Enable your location to be able to navigate effectively. I hope this is helpful"
+      ]
+    },
+    {
+      "tag": "navigation",
+      "patterns": [
+        "Where is the ?",
+        "Where can I find the ?"
+      ],
+      "responses": [
+        "Kindly use the navigation system to get more detailed directions. Click Done >>> Click the navigation icon on the bar below (i.e the second icon) >>> use the search bar at the top to input your desired destination >>> Enable your location to be able to navigate effectively. I hope this is helpful",
+        "The best way to find your desired location is by using the navigation system here. Click Done >>> Click the navigation icon on the bar below (i.e the second icon) >>> use the search bar at the top to input your desired destination >>> Enable your location to be able to navigate effectively. I hope this is helpful "
+      ]
+    },
+    {
+      "tag": "Library",
+      "patterns": [
+        "What can I find in the library?",
+        "What resources can I find in the library?",
+        "What can I use in the library?",
+        "What resources can I use in the library?"
+      ],
+      "responses": [
+        "The University's Library has a wide range of resources! They typically have books, academic journals, e-books, databases, and study spaces. For specifics, it's best you visit the library. 📚",
+        "In a school library, you can find Books covering various subjects and genres, Magazines, newspapers, and academic journals, Online databases for research, Digital resources like e-books and educational videos, Reference materials like encyclopedias and dictionaries, Computers and internet access, Study spaces and collaborative areas, Helpful librarians and staff, Special collections and educational events and many other important resources"
+      ]
+    },
+    {
+      "tag": "Stadium",
+      "patterns": [
+        "What equipments are at the stadium?",
+        "What resources can I find at the stadium?",
+        "Do you have a basketball pitch?",
+        "Do you have a football pitch?"
+      ],
+      "responses": [
+        "The stadium has a lot of equipments for various sports and there have been set in place just for you! There are facilities for Football (Soccer), Handball, Volley ball, Baseball, Athletics, Basketball, Concerts and other Events"
+      ]
+    }
+  ]
+}

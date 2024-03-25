@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-container {
+            width: 100%;
+            height: 92%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100vh;
+        }
+
+        #chat-box {
+            height: calc(100% - 60px); /* Adjust based on input and button height */
+            overflow-y: scroll;
+            padding: 10px;
+        }
+
+        .chatbot-name{
+            justify-content: space-between;
+            gap: 10px;
+            margin: 5px 0 0 10px;
+        }
+        #name{
+            padding: 10px 0;
+            font-size: 25px;
+            color: #0017E1;
+        }
+
+        .message {
+            padding: 5px;
+            margin-bottom: 5px;
+            width: fit-content;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            text-align: right;
+            background-color: #0017E1;
+            padding: 10px;
+            color: #fff;
+            border-radius: 10px 10px 0 10px;
+            margin-left: auto;
+        }
+
+        .bot-message {
+            text-align: left;
+            background-color: #AFAFAF;
+            padding: 10px;
+            background-size: inherit;
+            color: #fff;
+            border-radius: 10px 10px 10px 0;
+            margin-right: auto;
+        }
+
+        input[type="text"] {
+            width: 75%;
+            padding: 8px;
+            margin-right: 1px;
+            border: 2px solid #0017E1;
+            border-radius: 5px;
+        }
+
+        button {
+            height: 40px;
+            background-color: #0017E1;
+            color: #fff;
+            border: none;
+            padding: 0 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0016e1dc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chatbot-name" style="display: inline-flex;">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="20.8334" r="6.25" stroke="#0017E1" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="25" cy="25" r="18.75" stroke="#0017E1" stroke-width="3"/>
+                <path d="M37.5 38.9706C36.7627 36.7557 35.138 34.7985 32.878 33.4026C30.6179 32.0066 27.8487 31.25 25 31.25C22.1513 31.25 19.3821 32.0066 17.1221 33.4026C14.862 34.7985 13.2373 36.7557 12.5 38.9706" stroke="#0017E1" stroke-width="3" stroke-linecap="round"/>
+            </svg> <div id="name">Sam</div>
+        </div>
+            
+        <div class="chat-container">
+            <div id="chat-box"></div>
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
+    
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#send-btn").click(function() {
+                sendMessage();
+            });
+
+            $("#user-input").keypress(function(e) {
+                if (e.keyCode == 13) {
+                    sendMessage();
+                }
+            });
+
+            function sendMessage() {
+                var userMessage = $("#user-input").val();
+                $("#user-input").val('');
+                $("#chat-box").append("<div class='message user-message'>" + userMessage + "</div>");
+
+                $.ajax({
+                    url: '/chat',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ message: userMessage }),
+                    success: function(response) {
+                        var botMessage = response.message;
+                        $("#chat-box").append("<div class='message bot-message'>" + botMessage + "</div>");
+                        $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
